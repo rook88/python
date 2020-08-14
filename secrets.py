@@ -4,6 +4,8 @@ import keyring
 from cryptography.fernet import Fernet
 import win32clipboard
 
+__version__ = 1.1
+
 def toClipboard(data):
     win32clipboard.OpenClipboard()
     win32clipboard.EmptyClipboard()
@@ -42,3 +44,5 @@ class secretsFolder():
         self.__setattr__(name, txt)
     def __iter__(self):
          yield from [t for t in os.listdir(self.__dict__['_folder'])]
+    def items(self):
+        return [x for x in self]
