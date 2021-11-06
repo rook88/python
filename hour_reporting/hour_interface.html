@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Hour interface</p>
+
+<button onclick="myFunction()">insert hour</button>
+
+<p id="demo"></p>
+
+<script>
+function insert_log() {
+var url = "http://localhost:5000/insert_log";
+
+var xhr = new XMLHttpRequest();
+xhr.open("POST", url);
+
+xhr.setRequestHeader("Accept", "application/json");
+xhr.setRequestHeader("Content-Type", "application/json");
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+   }};
+
+var data = "{}";
+
+xhr.send(data);
+}
+
+function myFunction() {
+    insert_log();
+  document.getElementById("demo").innerHTML = "Hello World";
+}
+</script>

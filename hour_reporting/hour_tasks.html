@@ -1,0 +1,29 @@
+<button onclick="show_tasks()">get tasks</button>
+<p id="demo"></p>
+
+<script>
+function get_tasks() {
+var url = "http://localhost:5000/get_tasks";
+var xhr = new XMLHttpRequest();
+xhr.open("GET", url, true);
+xhr.setRequestHeader("Accept", "application/json");
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+//       console.log(xhr.responseText);
+//       document.getElementById("demo").innerHTML = 'status=' + xhr.status + 'response=' + xhr.responseText;
+       tasks_response = JSON.parse(xhr.responseText);
+       tasks = tasks_response['tasks'];
+//       document.getElementById("demo").innerHTML = JSON.stringify(tasks[0]);
+       return tasks
+   }};
+
+xhr.send(null);
+}
+
+function show_tasks() {
+    tasks = get_tasks();
+    document.getElementById("demo").innerHTML = JSON.stringify(tasks[0]);
+}
+</script>
