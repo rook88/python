@@ -1,0 +1,25 @@
+<button onclick="test_refresh_tasks()">test refresh tasks</button>
+<div id="tasks" class="tasks"></div>
+<div id="debug"></div>
+
+<style>
+.tasks  {background-color: #F2E4D6;}
+.task  {background-color: #F2E4F6;}
+.task   {color: blue; float: left;}
+.task:hover {
+    cursor: pointer;
+    background-color: #D2E4F6;
+}
+.task {
+  margin: 5px 5px 5px 5px;
+}
+</style>
+
+<script src="tasks.js"></script>
+
+<script>
+function test_refresh_tasks() {
+    refresh_tasks()
+}
+refresh_tasks()
+</script>

@@ -1,0 +1,12 @@
+<button onclick="test_insert()">insert_log</button>
+<table id="logs"></table>
+
+<script src="insert_log.js"></script>
+
+<script>
+function test_insert() {
+    test_data = JSON.parse('{"jira_id":"UNIT-A", "description":"unit test"}')
+    insert_log(test_data)
+    refresh_logs()
+}
+</script>
