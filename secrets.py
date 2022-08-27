@@ -2,15 +2,10 @@ import os
 import getpass
 import keyring
 from cryptography.fernet import Fernet
-import win32clipboard
+import pyperclip
 
 __version__ = 1.1
 
-def toClipboard(data):
-    win32clipboard.OpenClipboard()
-    win32clipboard.EmptyClipboard()
-    win32clipboard.SetClipboardText(data)
-    win32clipboard.CloseClipboard()
 
 def myEncrypt(txt):
     f = Fernet(keyring.get_password('secrets', 'folder').encode())
